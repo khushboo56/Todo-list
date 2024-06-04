@@ -1,0 +1,63 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-container',
+  templateUrl: './container.component.html',
+  styleUrls: ['./container.component.css']
+})
+export class ContainerComponent implements OnInit {
+
+  data: any[];
+
+  constructor() { 
+    // Initialize your data or services here
+    this.data = [];
+  }
+
+  ngOnInit(): void {
+    // Fetch data or perform initializations here
+    this.loadData();
+  }
+
+  loadData() {
+    // Simulate an API call
+    this.data = [
+      { id: 1, name: 'Item 1' },
+      { id: 2, name: 'Item 2' },
+      { id: 3, name: 'Item 3' }
+    ];
+  }
+
+}
+
+
+<div class="container">
+  <h2>Container Component</h2>
+  <ul>
+    <li *ngFor="let item of data">
+      {{ item.name }}
+    </li>
+  </ul>
+</div>
+
+
+.container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 5px 0;
+  }
+  
+  <app-container></app-container>
